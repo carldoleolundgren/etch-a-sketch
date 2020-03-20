@@ -1,6 +1,19 @@
-const smallBox1 = document.createElement('div');
-smallBox1.classList.add('small-box');
+var n=16; //take grid column value as you want
 
-const bigContainer = document.getElementById('bigContainer');
-bigContainer.appendChild(smallBox1);
-bigContainer.appendChild(smallBox2);
+const bigContainer = document.querySelector('.bigContainer')
+
+for(var i = 1; i < n; i++) {
+    bigContainer.innerHTML+='<div class="row">';
+
+    for(j = 0; j < n; j++) {
+        bigContainer.innerHTML+='<div class="smallBox">';
+    }
+}
+
+bigContainer.addEventListener('mouseover', e => {
+    var target = e.target
+  
+    if (target !== bigContainer) {
+      target.classList.add('permahover')
+    }
+  })
