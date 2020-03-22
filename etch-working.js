@@ -2,18 +2,25 @@ var n=16; //take grid column value as you want
 
 const bigContainer = document.querySelector('.bigContainer')
 
-for(var i = 1; i < n; i++) {
+for(let i = 1; i < n; i++) {
     bigContainer.innerHTML+='<div class="row">';
 
-    for(j = 0; j < n; j++) {
+    for(let j = 0; j < n; j++) {
         bigContainer.innerHTML+='<div class="smallBox">';
     }
 }
 
 bigContainer.addEventListener('mouseover', e => {
-    var target = e.target
+    let target = e.target
   
     if (target !== bigContainer) {
       target.classList.add('permahover')
     }
   })
+
+const resetButton = document.querySelector('#resetButton');
+resetButton.addEventListener('click', () => {
+    const smallBoxes = document.querySelectorAll('.smallBox');
+
+    smallBoxes.forEach(box => box.classList.remove('permahover'));
+});

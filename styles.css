@@ -1,12 +1,12 @@
 .smallBox {
     border: 1px solid black;
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
     display: inline-block;
 }
 
 .permahover {
-    background: red;
+    background: black;
 }
 
 h1 {
