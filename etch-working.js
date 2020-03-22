@@ -25,6 +25,7 @@ resetButton.addEventListener('click', () => {
 });
 
 const redrawGridButton = document.querySelector('#redrawGridButton');
+
 redrawGridButton.addEventListener('click', () => {
     bigContainer.innerHTML = "";
 
@@ -37,5 +38,12 @@ redrawGridButton.addEventListener('click', () => {
             bigContainer.innerHTML+='<div class="smallBox">';
         }
     }
-});
 
+    let elems = document.getElementsByClassName('smallBox');
+    let testVar = 16 * 40 / numBoxes;
+    for(var i = 0; i < elems.length; i++) {
+        elems[i].style.height = `${testVar}px`;
+        elems[i].style.width = `${testVar}px`;
+    }
+
+});
