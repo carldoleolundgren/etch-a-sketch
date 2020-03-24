@@ -10,17 +10,23 @@ window.onload = function initializeGrid() {
     }
 }
 
+let rbgPercentValue = 90;
+
 bigContainer.addEventListener('mouseover', event => {
     let target = event.target
-    var r = Math.floor(Math.random() * (255 - 0));
-    var g = Math.floor(Math.random() * (255 - 0));
-    var b = Math.floor(Math.random() * (255 - 0));
-    var color = 'rgb('+r+','+g+','+b+')'
-
-    if (target !== bigContainer) {
-      target.style['background'] = color;
+    let rbgPercentValue = parseInt(target.dataset.percent);
+    if (isNaN(rbgPercentValue)) rbgPercentValue = 100;
+    if (rbgPercentValue >= 10) {
+        rbgPercentValue -= 10;
+        target.dataset.percent = rbgPercentValue;
     }
-})
+        let rgbColor = `rgb(${rbgPercentValue}%,${rbgPercentValue}%,${rbgPercentValue}%)`
+    
+        if (target !== bigContainer) {
+            target.style['background'] = rgbColor;
+        }
+    
+    })
 
 const resetButton = document.querySelector('#resetButton');
 resetButton.addEventListener('click', () => {
